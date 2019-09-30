@@ -1,0 +1,28 @@
+{% if user %}
+<style>pre{white-space:wrap}</style>
+<div>Logged in as <strong>{{user}}</strong> (<a href="{{ url_for('.logout') }}">Log Out</a>)</div>
+
+{% for client in clients %}
+<pre>
+{{ client.client_info|tojson }}
+{{ client.client_metadata|tojson }}
+</pre>
+<hr>
+{% endfor %}
+
+<br><a href="{{ url_for('.create_client') }}">Create Client</a>
+
+{% else %}
+
+{% if failed %}
+login failure.</br>
+{% endif %}
+
+<form action="" method="post">
+  <input type="text" name="username" placeholder="username"><br/>
+  <input type="password" name="password" placeholder="password"><br/>
+  <button type="submit">Login</button>
+</form>
+<a href="/register">New user? Register</a>
+
+{% endif %}

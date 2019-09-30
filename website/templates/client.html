@@ -1,0 +1,9 @@
+<p>Client Application</p>
+
+<p>Welcome, {{ user }}</p>
+
+<p>Access Token: {{access_token}}</p>
+<p>ID Token: {{id_token}}</p>
+
+<a href="http://localhost:5000/oauth/authorize?response_type=code&client_id={{id}}&client_secret={{secret}}&confirm&scope=profile">
+    authorize</a>
